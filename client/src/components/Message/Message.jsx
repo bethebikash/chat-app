@@ -1,30 +1,69 @@
+import styled from '@emotion/styled';
 import React from 'react';
 import ReactEmoji from 'react-emoji';
 
+const StyledMessageIn = styled('div')`
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 10px 0;
+    justify-content: flex-start;
+`;
+
+const StyledMessageOut = styled('div')`
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin: 10px 0;
+    justify-content: flex-end;
+`;
+
+const StyledUser = styled('div')`
+    font-weight: 100;
+    font-size: 14px;
+    color: #6e6e6e;
+`;
+
+const StyledMyText = styled('div')`
+    background: blue;
+    color: #ffffff;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 50px;
+`;
+
+const StyledOthersText = styled('div')`
+    background: white;
+    color: #000000;
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 50px;
+`;
+
 const Message = ({ message: { user, text }, name }) => {
-  let isSendByCurrentUser = false;
+    let isSendByCurrentUser = false;
 
-  const trimmedName = name.trim().toLowerCase();
+    const trimmedName = name.trim().toLowerCase();
 
-  if (user === trimmedName) {
-    isSendByCurrentUser = true;
-  }
+    if (user === trimmedName) {
+        isSendByCurrentUser = true;
+    }
 
-  return isSendByCurrentUser ? (
-    <div>
-      <p>{trimmedName}</p>
-      <div>
-        <p>{ReactEmoji.emojify(text)}</p>
-      </div>
-    </div>
-  ) : (
-    <div>
-      <div>
-        <p>{ReactEmoji.emojify(text)}</p>
-      </div>
-      <p>{user}</p>
-    </div>
-  );
+    return isSendByCurrentUser ? (
+        <StyledMessageOut>
+            <StyledUser>{trimmedName}</StyledUser>
+            <StyledMyText>
+                <p>{ReactEmoji.emojify(text)}</p>
+            </StyledMyText>
+        </StyledMessageOut>
+    ) : (
+        <StyledMessageIn>
+            <StyledOthersText>
+                <p>{ReactEmoji.emojify(text)}</p>
+            </StyledOthersText>
+            <StyledUser>{user}</StyledUser>
+        </StyledMessageIn>
+    );
 };
 
 export default Message;
