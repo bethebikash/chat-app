@@ -6,7 +6,7 @@ const StyledInfoBar = styled('div')`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 30px;
+    height: 50px;
     padding: 10px;
     font-size: 22px;
     color: #ffffff;
@@ -30,7 +30,7 @@ const StyledLink = styled('a')`
 
 const StyledTeamView = styled('a')`
     color: #ffffff;
-    padding-right: 20px;
+    margin-right: 20px;
     cursor: pointer;
     &:hover {
         color: #f0f0f0;

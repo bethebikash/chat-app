@@ -13,6 +13,11 @@ const StyledWrapper = styled('div')`
     display: flex;
     flex-direction: row;
     gap: 20px;
+
+    @media only screen and (max-width: 728px) {
+        width: 100vw;
+        height: 100vh;
+  }
 `;
 
 const StyledMessanger = styled('div')`

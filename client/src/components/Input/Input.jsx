@@ -4,11 +4,16 @@ import React from 'react';
 const StyledForm = styled('form')`
     display: flex;
     justify-content: space-between;
-    z-index: 22;
+
+    @media only screen and (max-width: 728px) {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+  }
 `;
 
 const StyledInput = styled('input')`
-    height: 30px;
+    height: 50px;
     padding: 5px;
     width: 75%;
     border-radius: 0 0  0 5px ;
@@ -19,7 +24,7 @@ const StyledButton = styled('button')`
     background: linear-gradient(to right, #415ae9 0%, #8838f9 100%);
     font-weight: 500;
     color: #ffffff;
-    height: 40px;
+    height: 60px;
     width: 25%;
     padding: 5px;
     border-radius: 0 0 5px 0;

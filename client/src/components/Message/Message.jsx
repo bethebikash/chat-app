@@ -6,7 +6,7 @@ const StyledMessageIn = styled('div')`
     display: flex;
     gap: 5px;
     align-items: center;
-    margin: 10px 0;
+    margin: 10px;
     justify-content: flex-start;
 `;
 
@@ -14,7 +14,7 @@ const StyledMessageOut = styled('div')`
     display: flex;
     gap: 5px;
     align-items: center;
-    margin: 10px 0;
+    margin: 10px;
     justify-content: flex-end;
 `;
 
@@ -30,7 +30,6 @@ const StyledMyText = styled('div')`
     display: inline-block;
     padding: 3px 8px;
     border-radius: 12px;
-    margin-right: 10px;
 `;
 
 const StyledOthersText = styled('div')`
@@ -39,7 +38,6 @@ const StyledOthersText = styled('div')`
     display: inline-block;
     padding: 3px 8px;
     border-radius: 12px;
-    margin-left: 10px;
 `;
 
 const Message = ({ message: { user, text }, name }) => {
