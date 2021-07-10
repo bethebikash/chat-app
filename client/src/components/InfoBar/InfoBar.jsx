@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { AiOutlineClose, AiOutlineCrown } from 'react-icons/ai';
+import { AiOutlineClose, AiOutlineCrown, AiOutlineTeam } from 'react-icons/ai';
 
 const StyledInfoBar = styled('div')`
     display: flex;
@@ -24,23 +24,40 @@ const StyledHeader = styled('div')`
 const StyledLink = styled('a')`
     color: #ffffff;
     &:hover {
-        color: #ffffff;
+        color: #f1d1d1;
     }
 `;
 
-const InfoBar = ({ room }) => {
+const StyledTeamView = styled('a')`
+    color: #ffffff;
+    padding-right: 20px;
+    cursor: pointer;
+    &:hover {
+        color: #f0f0f0;
+    }
+    @media only screen and (min-width: 728px) {
+        display: none;
+  }
+`;
+
+const InfoBar = ({ room, handleRoomInfo }) => {
     return (
-        <StyledInfoBar>
-            <StyledHeader>
-                <AiOutlineCrown />
-                <span>{room}</span>
-            </StyledHeader>
-            <div>
-                <StyledLink href="/">
-                    <AiOutlineClose />
-                </StyledLink>
-            </div>
-        </StyledInfoBar>
+        <>
+            <StyledInfoBar>
+                <StyledHeader>
+                    <AiOutlineCrown />
+                    <span>{room}</span>
+                </StyledHeader>
+                <div>
+                    <StyledTeamView onClick={handleRoomInfo}>
+                        <AiOutlineTeam />
+                    </StyledTeamView>
+                    <StyledLink href="/">
+                        <AiOutlineClose />
+                    </StyledLink>
+                </div>
+            </StyledInfoBar>
+        </>
     );
 };
 

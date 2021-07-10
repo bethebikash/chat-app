@@ -21,7 +21,19 @@ const StyledMessanger = styled('div')`
     width: 40vw;
     flex-direction:column;
     justify-content: space-between;
+    position: relative;
+
+    @media only screen and (max-width: 728px) {
+        width: 100vw;
+        height: 100vh;
+  }
 `;
+
+const StyledInfo = styled('div')`
+    @media only screen and (max-width: 728px) {
+        display: none;
+  }
+`
 
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
@@ -39,7 +51,7 @@ const Chat = ({ location }) => {
         setName(name);
         setRoom(room);
 
-        socket.emit('join', { name, room }, () => {});
+        socket.emit('join', { name, room }, () => { });
 
         return () => {
             socket.emit('disconnect');
@@ -57,6 +69,9 @@ const Chat = ({ location }) => {
         });
     }, [messages]);
 
+    const [showRoom, setshowRoom] = useState(false)
+    const toggleRoom = () => setshowRoom(!showRoom);
+
     const sendMessage = (event) => {
         event.preventDefault();
         if (message) {
@@ -64,18 +79,16 @@ const Chat = ({ location }) => {
         }
     };
 
-    console.log(message, messages);
-
     return (
         <StyledWrapper>
             <StyledMessanger>
-                <InfoBar room={room} />
-                <Messages messages={messages} name={name} />
+                <InfoBar room={room} handleRoomInfo={toggleRoom} />
+                <Messages messages={messages} name={name} users={users} showRoom={showRoom} />
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
             </StyledMessanger>
-            <div>
+            <StyledInfo>
                 <RoomInfo users={users} />
-            </div>
+            </StyledInfo>
         </StyledWrapper>
     );
 };

@@ -29,7 +29,8 @@ const StyledMyText = styled('div')`
     color: #ffffff;
     display: inline-block;
     padding: 3px 8px;
-    border-radius: 50px;
+    border-radius: 12px;
+    margin-right: 10px;
 `;
 
 const StyledOthersText = styled('div')`
@@ -37,7 +38,8 @@ const StyledOthersText = styled('div')`
     color: #000000;
     display: inline-block;
     padding: 3px 8px;
-    border-radius: 50px;
+    border-radius: 12px;
+    margin-left: 10px;
 `;
 
 const Message = ({ message: { user, text }, name }) => {

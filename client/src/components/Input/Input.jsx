@@ -4,6 +4,7 @@ import React from 'react';
 const StyledForm = styled('form')`
     display: flex;
     justify-content: space-between;
+    z-index: 22;
 `;
 
 const StyledInput = styled('input')`
